@@ -50,9 +50,14 @@ public class ProductApiController {
         product.setName(productDetails.getName());
         product.setPrice(productDetails.getPrice());
         product.setDescription(productDetails.getDescription());
+        product.setCategory(productDetails.getCategory());
         final Product updatedProduct =productService.addProduct(product);
         return ResponseEntity.ok(updatedProduct);
     }
+//    @PutMapping("/{id}")
+//    public Product updateProduct(@RequestBody Product product) {
+//        return productService.updateProduct(product);
+//    }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         Product product = productService.getProductById(id)
